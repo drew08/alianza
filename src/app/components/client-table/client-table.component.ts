@@ -1,24 +1,24 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { DataService } from 'src/app/services';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { client } from 'src/app/models';
+import { DataService } from 'src/app/services';
 import { CreateClientComponent } from '../create-client';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import {MatIconModule} from '@angular/material/icon';
 import { SearchAdvancedComponent } from '../search-advanced/search-advanced.component';
-import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-client-table',
   standalone: true,
-  imports: [MatCardModule,MatIconModule, CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule, MatDialogModule, MatDatepickerModule],
+  imports: [MatCardModule, MatIconModule, CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule, MatDialogModule, MatDatepickerModule],
   templateUrl: './client-table.component.html',
   styleUrls: ['./client-table.component.scss']
 })
@@ -31,9 +31,9 @@ export class ClientTableComponent implements OnInit {
   dataSource!: MatTableDataSource<client>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
- 
+
   @ViewChild(MatSort) sort!: MatSort;
- 
+
 
   constructor(public dialog: MatDialog, private dataService: DataService) {
 
@@ -60,7 +60,7 @@ export class ClientTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    
+
   }
 
   applyFilter(event: Event) {

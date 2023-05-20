@@ -1,31 +1,30 @@
 
 import { CommonModule } from '@angular/common';
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
 import { DataService, SideNavService } from 'src/app/services';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import { MatSidenav } from '@angular/material/sidenav';
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule, MatToolbarModule,MatIconModule ],
+  imports: [RouterModule, CommonModule, FormsModule, MatToolbarModule, MatIconModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, DoCheck {
-  
- 
-   
+
+
+
   public totalCount: number = 0;
   public searchTerm: string = '';
   isMenuVisible = true;
   constructor(private dataService: DataService, private route: Router, private sideNavService: SideNavService) { }
 
-  clickMenu() { 
+  clickMenu() {
     this.sideNavService.toggle();
   }
 
@@ -39,7 +38,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   ngOnInit(): void {
- 
+
 
   }
 
@@ -49,7 +48,7 @@ export class HeaderComponent implements OnInit, DoCheck {
 
     this.searchTerm = (event.target as HTMLInputElement).value;
     this.dataService.search.next(this.searchTerm);
-   
+
   }
 
 }

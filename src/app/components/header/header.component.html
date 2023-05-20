@@ -1,27 +1,7 @@
 <header>
-  <!-- <div class="nav">
-    <input type="checkbox" id="nav-check">
-    <div class="nav-header">
-      <div class="nav-title">
-        <img src="/assets/img/logo.png" alt="image">
-      </div>
-    </div>
-    <div class="nav-input">
-      <div class="form-inline p-2" *ngIf="isMenuVisible">
-        <input class="form-control inputStyle" type="text" name="searchTerm" [(ngModel)]="searchTerm"
-          (keyup)="search($event)" placeholder="Search by Title" aria-label="Buscar">
-      </div>
-    </div> 
 
-    <div class="nav-links">
-     
-    </div>
-
-  </div> -->
-
-
-  <mat-toolbar color="primary" role="heading">
-    <button mat-icon-button (click)="clickMenu()">
+  <mat-toolbar class="bar" color="primary" role="heading">
+    <button class="bar-btn "mat-icon-button (click)="clickMenu()">
       <mat-icon>menu</mat-icon>
     </button>
    

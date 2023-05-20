@@ -19,7 +19,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
-import * as moment from 'moment';
 
 @Component({
   selector: 'app-create-client',
@@ -30,11 +29,13 @@ import * as moment from 'moment';
 })
 export class CreateClientComponent implements OnInit {
 
+  today = new Date();
+
   registrationForm = this.fb.group({
     businessID: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     phone: ['', [Validators.required, Validators.minLength(10)]],
     email: ['', [Validators.required, Validators.email]],
-    dataAdded: [moment(moment().format('MM/DD/YYYY')).format("DD-MM-YYYY"), [Validators.required]],
+    dataAdded: [this.today, [Validators.required]],
     endDate: ['', [Validators.required]],
     sharedKey: ['',]
   }); // moment(new Date()).format("DD/MM/YYYY")
@@ -50,7 +51,7 @@ export class CreateClientComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  today = new Date();
+
 
   onSubmit() {
     debugger;

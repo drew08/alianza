@@ -17,9 +17,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
+import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
-import * as moment from 'moment';
 
 
 @Component({
