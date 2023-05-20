@@ -12,6 +12,7 @@ import { client } from 'src/app/models';
 import { CreateClientComponent } from '../create-client';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
+import { SearchAdvancedComponent } from '../search-advanced/search-advanced.component';
 
 @Component({
   selector: 'app-client-table',
@@ -39,6 +40,15 @@ export class ClientTableComponent implements OnInit {
 
   openCreateDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(CreateClientComponent, {
+      backdropClass: 'blurred',
+      autoFocus: false,
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
+  openSearchDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(SearchAdvancedComponent, {
       backdropClass: 'blurred',
       autoFocus: false,
       enterAnimationDuration,

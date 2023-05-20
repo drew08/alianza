@@ -35,8 +35,10 @@ mat-toolbar {
     margin-left: 32px;
   
     padding: 16px;
+    padding-top: 20px;
   
     overflow: auto;
+    overflow-y: hidden; /* Hide vertical scrollbar */
   }
   
   mat-sidenav-container {
@@ -54,6 +56,11 @@ mat-toolbar {
       margin-right: 8px;
     }
   }
+
+  .menu-button:hover{
+    background-color: $color_2;
+  }
+
   
   
   .designation {
@@ -67,3 +74,13 @@ mat-toolbar {
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.5);
   }
+
+
+
+
+
+
+
+
+
+

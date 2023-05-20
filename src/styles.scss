@@ -31,7 +31,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .normal-btn {
     background-color: #019df4;
-    font-size: 14px;
     text-align: center;
     vertical-align: middle;
     touch-action: manipulation;
@@ -50,10 +49,78 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     width: 100%;
     height: 39px;
     min-width: 170px;
-    max-width: 227px;
+    max-width: 188px;
     width: 60% !important;
     position: relative;
+
+
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+    mat-icon {
+        margin-right: 8px;
+      }
 }
+
+
+.menu-btn {
+    background-color: inherit;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 0px solid transparent;
+    white-space: nowrap;
+    line-height: 1.42857;
+    user-select: none;
+    margin: 0.4em 0;
+    outline: none !important;
+    color: #fff;
+    // border-radius: 20px;
+    padding: 0 14px;
+    margin: 0 3px;
+
+    height: 39px;
+    min-width: 170px;
+    max-width: 188px;
+    width: 60% !important;
+    position: relative;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+  
+
+    mat-icon {
+        margin-right: 8px;
+      }
+}
+
+.menu-btn:hover,
+.menu-btn:active {
+  background-color: #019df4;
+}
+
+.normal-btn span {
+    margin-left: 1rem;
+    transition: 0.2s;
+  }
+  
+  .normal-btn:hover,
+  .normal-btn:active {
+    background-color: #c2cffc;
+  }
+  
+  .normal-btn:hover span,
+  .normal-btn:active span {
+    margin-left: 1.5rem;
+  }
 
 
 .cancel-btn {

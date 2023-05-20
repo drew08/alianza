@@ -11,6 +11,7 @@ import { APP_ROUTE } from './app/app.route';
 import { provideAnimations, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { importProvidersFrom } from '@angular/core';
 import {  MatDatepickerModule } from '@angular/material/datepicker';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
 
@@ -22,6 +23,7 @@ bootstrapApplication(AppComponent, {
     provideToastr(),
     provideAnimations(),
     importProvidersFrom(BrowserAnimationsModule),
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
 ]
 
 

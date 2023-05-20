@@ -21,14 +21,15 @@ import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
 import * as moment from 'moment';
 
+
 @Component({
-  selector: 'app-create-client',
+  selector: 'app-search-advanced',
   standalone: true,
   imports: [MatIconModule, RouterModule, HttpClientModule, MatFormFieldModule, FormsModule, ReactiveFormsModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule, CommonModule, MatButtonModule, ToastrModule, MatCardModule],
-  templateUrl: './create-client.component.html',
-  styleUrls: ['./create-client.component.scss']
+  templateUrl: './search-advanced.component.html',
+  styleUrls: ['./search-advanced.component.scss']
 })
-export class CreateClientComponent implements OnInit {
+export class SearchAdvancedComponent implements OnInit {
 
   registrationForm = this.fb.group({
     businessID: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
@@ -81,12 +82,15 @@ export class CreateClientComponent implements OnInit {
       debugger;
       this.toastr.success('registro exitoso, puede realizar el login')
       this.registrationForm.reset({});
+
+      // this.router.navigate(['login'])
       var res = result;
 
     },
       (error: any) => {
         console.error('error caught in component')
       }
+
     );
   }
 
