@@ -13,11 +13,12 @@ import { CreateClientComponent } from '../create-client';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatIconModule} from '@angular/material/icon';
 import { SearchAdvancedComponent } from '../search-advanced/search-advanced.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-client-table',
   standalone: true,
-  imports: [MatIconModule, CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule, MatDialogModule, MatDatepickerModule],
+  imports: [MatCardModule,MatIconModule, CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule, MatDialogModule, MatDatepickerModule],
   templateUrl: './client-table.component.html',
   styleUrls: ['./client-table.component.scss']
 })

@@ -1,31 +1,21 @@
 
 
+
+
 .gap {
     margin-right: 10px !important;
 }
 
-.mat-mdc-form-field {
-    width: 32%;
-    margin-right: 20px;
-}
 
 
-.dialog-background{
 
-    background-color: #bbbbbbf2;
-    backdrop-filter: blur(4px);
-}
 .blurred {
-    backdrop-filter: blur(5px);
-    transition: none;
+    backdrop-filter: blur(5px) !important;
+    transition: none !important;
+    background-color: #bbbbbbf2
   }
 
 
-.cdk-overlay-backdrop{
-    background-color: #bbbbbbf2;
-    backdrop-filter: blur(4px);
-
-}
 .client-table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -104,8 +94,32 @@ $gray-border: darken(#f8f8f8, 10%);
 $gray-light: rgba(0, 0, 0, .35);
 $faded-yellow: lighten(#f1c40f, 40%);
 
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    .mat-mdc-form-field {
+        width: 32%;
+        margin-right: 20px;
+    }
+    
+  }
+
 //responsive
 @media (max-width: 768px) {
+
+    // .mat-mdc-form-field {
+    //     width: 32% !important;
+    //     margin-right: 20px !important
+    // }
+
+    .actions{
+        display: flex;
+    }
 
 
     .container {
@@ -127,12 +141,6 @@ $faded-yellow: lighten(#f1c40f, 40%);
     mat-header-cell, mat-cell {
         justify-content: center;
       }
-
-    $screen-sm-min: 768px;
-$shadow: 0 2px 3px rgba(0, 0, 0, .2);
-$gray-border: darken(#f8f8f8, 10%);
-$gray-light: rgba(0, 0, 0, .35);
-$faded-yellow: lighten(#f1c40f, 40%);
 
 
     mdc-table .mat-mdc-header-cell {
