@@ -27,20 +27,22 @@ mat-toolbar {
     border-radius: 10px;
     padding: 16px;
     text-align: center;
+
+
   }
   
   .content {
-    height: calc(100vh - 150px);
+    height: calc(103vh - 150px);
     border-radius: 10px;
     margin: 16px;
     margin-left: 32px;
   
     padding: 16px;
-    padding-top: 20px;
+    padding-top: 10px;
   
-  //  overflow: auto;
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide vertical scrollbar */
+    overflow: auto;
+  //  overflow-y: hidden; /* Hide vertical scrollbar */
+    //overflow-x: hidden; /* Hide vertical scrollbar */
   }
   
   mat-sidenav-container {
@@ -78,7 +80,15 @@ mat-toolbar {
   }
 
 
+//responsive
+@media (max-width: 768px) {
+    .content {
+        height: auto;
+        margin-left: 15px !important;
+        overflow-y: hidden; /* Hide vertical scrollbar */
+      }
 
+}  
 
 
 

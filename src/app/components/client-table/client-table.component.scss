@@ -106,19 +106,43 @@ $faded-yellow: lighten(#f1c40f, 40%);
         width: 32%;
         margin-right: 20px;
     }
+
+    .client-table td {
+        padding: 0px 15px;
+    }
     
   }
 
 //responsive
 @media (max-width: 768px) {
 
-    // .mat-mdc-form-field {
-    //     width: 32% !important;
-    //     margin-right: 20px !important
-    // }
+
+
+    .normal-btn {
+        margin-top: 15px;
+    }
+
+    .search-section{
+        display: flex;
+        justify-content: center;
+    }
+
+    .mat-mdc-card-header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .mat-mdc-card-content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
 
     .actions{
         display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
 
@@ -129,8 +153,18 @@ $faded-yellow: lighten(#f1c40f, 40%);
         margin-right: unset !important;
         margin-left: unset !important;
         max-width: 100% !important;
-        // overflow-x: hidden !important;
         overflow-x: auto;
+
+    }
+
+    .container-header {
+        width: unset !important;
+        padding-right: unset !important;
+        padding-left: unset !important;
+        margin-right: unset !important;
+        margin-left: unset !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
 
     td {
