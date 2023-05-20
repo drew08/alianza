@@ -1,0 +1,24 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" mode="side" class="mat-elevation-z8">
+
+    <div class="logo">
+            <img  class="" src="/assets/img/logo.png" alt="image">
+    </div>
+  
+  
+      <mat-divider></mat-divider>
+  
+      <button mat-button class="menu-button" routerLink="/home">
+        <mat-icon>person</mat-icon>
+        <span>Clients</span>
+      </button>
+
+  
+      <mat-divider></mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="content mat-elevation-z8">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

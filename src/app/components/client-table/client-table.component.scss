@@ -1,0 +1,139 @@
+
+
+.dialog-background{
+
+    background-color: #bbbbbbf2;
+    backdrop-filter: blur(4px);
+}
+.blurred {
+    backdrop-filter: blur(5px);
+    transition: none;
+  }
+
+
+.cdk-overlay-backdrop{
+    background-color: #bbbbbbf2;
+    backdrop-filter: blur(4px);
+
+}
+.client-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.text-center {
+    text-align: center;
+    text-align: justify;
+}
+
+
+th {
+    background-color:  #019df4 !important;
+}
+
+
+.mat-mdc-table .mdc-data-table__header-row {
+    height: 40px;
+}
+
+.mat-mdc-cell {
+    background-color: #fff;
+    color: black;
+}
+
+
+.client-table th,
+.client-table td {
+    padding: 12px 15px;
+}
+
+
+.client-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.client-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.client-table tbody tr:last-of-type {
+    border-bottom: 2px solid #019df4;
+}
+
+
+.client-table tbody tr.active-row {
+    font-weight: bold;
+    color: #019df4;
+}
+
+
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+// td,
+// th {
+//     width: 25%;
+// }
+
+
+
+$screen-sm-min: 768px;
+$shadow: 0 2px 3px rgba(0, 0, 0, .2);
+$gray-border: darken(#f8f8f8, 10%);
+$gray-light: rgba(0, 0, 0, .35);
+$faded-yellow: lighten(#f1c40f, 40%);
+
+//responsive
+@media (max-width: 768px) {
+
+
+    .container {
+        width: unset !important;
+        padding-right: unset !important;
+        padding-left: unset !important;
+        margin-right: unset !important;
+        margin-left: unset !important;
+        max-width: 100% !important;
+        // overflow-x: hidden !important;
+        overflow-x: auto;
+    }
+
+    td {
+
+        font-size: 10px;
+    }
+
+    mat-header-cell, mat-cell {
+        justify-content: center;
+      }
+
+    $screen-sm-min: 768px;
+$shadow: 0 2px 3px rgba(0, 0, 0, .2);
+$gray-border: darken(#f8f8f8, 10%);
+$gray-light: rgba(0, 0, 0, .35);
+$faded-yellow: lighten(#f1c40f, 40%);
+
+
+    mdc-table .mat-mdc-header-cell {
+        color: black;
+        box-shadow: $shadow;
+        background: #fff;
+        border-bottom: 1px solid $gray-border;
+        cursor: pointer;
+        display: block;
+        padding: 15px;
+        margin: 0 0 30px 0;
+    }
+
+
+}
