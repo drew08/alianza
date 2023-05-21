@@ -14,7 +14,6 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-
   getData() {
     debugger;
     return this.http.get(`${this.baseURL}?sort=asc`);
@@ -28,6 +27,13 @@ export class DataService {
 
 
   createData(data: {}) {
+
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(data);
+    return this.http.post(`${this.baseURL}`, body, { 'headers': headers });
+  }
+
+  advancedSearch(data: {}) {
 
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(data);

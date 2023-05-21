@@ -31,11 +31,13 @@ import { DataService } from 'src/app/services/data.service';
 })
 export class SearchAdvancedComponent implements OnInit {
 
+  today = new Date();
+
   registrationForm = this.fb.group({
     businessID: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
     phone: ['', [Validators.required, Validators.minLength(10)]],
     email: ['', [Validators.required, Validators.email]],
-    dataAdded: [moment(moment().format('MM/DD/YYYY')).format("DD-MM-YYYY"), [Validators.required]],
+    dataAdded: [this.today, [Validators.required]],
     endDate: ['', [Validators.required]],
     sharedKey: ['',]
   }); // moment(new Date()).format("DD/MM/YYYY")
@@ -51,41 +53,25 @@ export class SearchAdvancedComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-  today = new Date();
+  
 
   onSubmit() {
     debugger;
-
     let data = this.registrationForm.value;
-
-    this.generateSharedKey(data);
-    debugger;
     if (!this.registrationForm.valid) {
       this.toastr.warning('por favor ingrese la informacion.')
     } else {
-      this.createData(data);
+      this.advancedSearch(data);
     }
   }
 
-  generateSharedKey(data: any) {
+ 
+  advancedSearch(data: any) {
     debugger;
-
-    if (data.businessID) {
-      var parts = data.businessID.match(/^([a-zA-Z])[^\s]*(.*)$/);
-      data.sharedKey = parts[1] + parts[2].replace(/\s/g, "");
-    }
-  }
-
-  createData(data: any) {
-    debugger;
-    this.dataService.createData(data).subscribe((result: any) => {
+    this.dataService.advancedSearch(data).subscribe((result: any) => {
       debugger;
-      this.toastr.success('registro exitoso, puede realizar el login')
       this.registrationForm.reset({});
-
-      // this.router.navigate(['login'])
       var res = result;
-
     },
       (error: any) => {
         console.error('error caught in component')

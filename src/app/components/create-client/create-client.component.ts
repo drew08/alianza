@@ -80,7 +80,7 @@ export class CreateClientComponent implements OnInit {
     debugger;
     this.dataService.createData(data).subscribe((result: any) => {
       debugger;
-      this.toastr.success('registro exitoso, puede realizar el login')
+      this.toastr.success('registro exitoso')
       this.registrationForm.reset({});
       var res = result;
 
