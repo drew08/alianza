@@ -40,9 +40,9 @@ export class CreateClientComponent implements OnInit {
     phone: ['', [Validators.required, Validators.minLength(10)]],
     email: ['', [Validators.required, Validators.email]],
     dataAdded: [this.today, [Validators.required]],
-    endDate: ['', [Validators.required]],
+    endDate: [, [Validators.required]],
     sharedKey: ['',]
-  }); // moment(new Date()).format("DD/MM/YYYY")
+  }); 
 
   constructor(private dataService: DataService,
     public fb: FormBuilder,
@@ -60,7 +60,7 @@ export class CreateClientComponent implements OnInit {
       this.registrationForm.controls['email'].setValue(this.editData.email);
       this.registrationForm.controls['dataAdded'].setValue(this.editData.dataAdded);
       this.registrationForm.controls['sharedKey'].setValue(this.editData.sharedKey);
-
+      this.registrationForm.controls['endDate'].setValue(this.editData.endDate);
     }
   }
 
