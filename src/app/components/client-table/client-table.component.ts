@@ -86,6 +86,8 @@ export class ClientTableComponent implements OnInit {
 
       this.dataSource = new MatTableDataSource(this.clientList);
 
+      console.log(this.clientList);
+
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     },

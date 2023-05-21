@@ -29,7 +29,7 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './search-advanced.component.html',
   styleUrls: ['./search-advanced.component.scss']
 })
-export class SearchAdvancedComponent implements OnInit {
+export class SearchAdvancedComponent  {
 
   today = new Date();
 
@@ -49,9 +49,6 @@ export class SearchAdvancedComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   
 
