@@ -70,9 +70,9 @@ export class ClientTableComponent implements OnInit {
 
 
   getData() {
-    debugger;
+    
     this.dataService.getData().subscribe((result: any) => {
-      debugger;
+      
       this.clientList = result;
 
       this.dataSource = new MatTableDataSource(this.clientList);
@@ -87,9 +87,9 @@ export class ClientTableComponent implements OnInit {
   }
 
   create() {
-    debugger;
+    
     this.dataService.getData().subscribe((result: any) => {
-      debugger;
+      
       this.clientList = result;
 
       this.dataSource = new MatTableDataSource(this.clientList);

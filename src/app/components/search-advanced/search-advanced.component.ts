@@ -44,7 +44,7 @@ export class SearchAdvancedComponent {
   ) { }
 
   onSubmit() {
-    debugger;
+    
     let data = this.registrationForm.value;
     if (!this.registrationForm.valid) {
       this.toastr.warning('please review the information entered.')
@@ -55,9 +55,9 @@ export class SearchAdvancedComponent {
 
 
   advancedSearch(data: any) {
-    debugger;
+    
     this.dataService.advancedSearch(data).subscribe((result: any) => {
-      debugger;
+      
       this.registrationForm.reset({});
       let res = result;
     },

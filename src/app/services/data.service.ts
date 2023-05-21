@@ -14,13 +14,13 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getData() {
-    debugger;
+    
     return this.http.get(`${this.baseURL}`);
   }
 
 
   getDataBySharedKey(sharedKey: string) {
-    debugger;
+    
     return this.http.get(`${this.baseURL}/findbysharedKey/${sharedKey}`);
   }
 
@@ -39,7 +39,7 @@ export class DataService {
   }
 
   updateData(id: string, data: client) {
-    debugger;
+    
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(data);
     return this.http.patch(`${this.baseURL}/${id}`, body, { 'headers': headers });

@@ -60,7 +60,7 @@ export class CreateClientComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
+    
 
     let data = this.registrationForm.value;
     this.generateSharedKey(data);
@@ -79,7 +79,7 @@ export class CreateClientComponent implements OnInit {
   }
 
   generateSharedKey(data: any) {
-    debugger;
+    
     if (data.businessID) {
       var parts = data.businessID.match(/^([a-zA-Z])[^\s]*(.*)$/);
       data.sharedKey = parts[1] + parts[2].replace(/\s/g, "");
@@ -87,9 +87,9 @@ export class CreateClientComponent implements OnInit {
   }
 
   createData(data: any) {
-    debugger;
+    
     this.dataService.createData(data).subscribe((result: any) => {
-      debugger;
+      
       this.toastr.success('Successful registration.')
       this.registrationForm.reset({});
       var res = result;
@@ -103,10 +103,10 @@ export class CreateClientComponent implements OnInit {
   }
 
   updateData(data: any) {
-    debugger;
+    
 
     this.dataService.updateData(this.editData._id, data).subscribe((result: any) => {
-      debugger;
+      
       this.toastr.success('update successful.')
       this.registrationForm.reset({});
       var res = result;
