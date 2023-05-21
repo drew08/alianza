@@ -42,7 +42,15 @@ let mockedClient: Array<client> = [];
     "email": "abcd",
     "phone":"abcd",
     "dataAdded": "abcd"
- }
+ },
+ {
+  "_id": "abcdd",
+  "sharedKey": "abcd",
+  "businessID": "abcd",
+  "email": "abcd",
+  "phone":"abcd",
+  "dataAdded": "abcd"
+}
 ] 
  
  const mockedDataService: {
@@ -82,6 +90,13 @@ describe('ClientTableComponent', () => {
   });
 
 
+  it('crear componente ClientTableComponent',() => {
+    fixture = TestBed.createComponent(ClientTableComponent);
+    component = fixture.componentInstance;
+    expect(component).toBeTruthy();
+  });
+
+
    it('should call api, getData',() => {
      const getDataSpy = spyOn(mockedDataService,'getData');
      getDataSpy.and.returnValue(of(mockedClient));
@@ -95,13 +110,18 @@ describe('ClientTableComponent', () => {
     //  expect(component.clientList).toBeFalsy();
    });
 
+   it('should call service.getData', ()=>{
 
-   it('crear componente ClientTableComponent',() => {
-     fixture = TestBed.createComponent(ClientTableComponent);
-     component = fixture.componentInstance;
-     expect(component).toBeTruthy();
-   });
+    const getDataSpy = spyOn(mockedDataService,'getData');
+  
+    component.getData();
+  
+    expect(getDataSpy).toHaveBeenCalled();
+    
+  });
 
+
+ 
 
 });
 
