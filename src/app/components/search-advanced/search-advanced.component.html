@@ -1,59 +1,43 @@
-<mat-card>
-    <mat-card-header>
-        <h2>Create New Client</h2>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="example-container">
-            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+<div class="example-container">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
 
-                <div class="example-form-fields content">
-                    <div class="row">
-                        <mat-form-field appearance="fill">
-                            <mat-label>name</mat-label>
-                            <input matInput type="text" placeholder="Ex. andres" formControlName="businessID">
-                            <mat-icon matSuffix>person</mat-icon>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field appearance="fill">
-                            <mat-label>phone</mat-label>
-                            <input matInput type="number" placeholder="Ex. 3215114245" formControlName="phone">
-                            <mat-icon matSuffix>phone</mat-icon>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field appearance="fill">
-                            <mat-label>Email</mat-label>
-                            <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
-                            <mat-icon matSuffix>email</mat-icon>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field appearance="fill">
-                            <mat-label>Start Date</mat-label>
-                            <input matInput [max]="today" [matDatepicker]="startDatePicker" formControlName="dataAdded">
-                            <mat-hint>DD/MM/YYYY</mat-hint>
-                            <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
-                            <mat-datepicker #startDatePicker></mat-datepicker>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field appearance="fill">
-                            <mat-label>End Date</mat-label>
-                            <input matInput [min]="today" [matDatepicker]="endDatePicker" formControlName="endDate">
-                            <mat-hint>DD/MM/YYYY</mat-hint>
-                            <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
-                            <mat-datepicker #endDatePicker></mat-datepicker>
-                        </mat-form-field>
-                    </div>
-                </div>
-                <div class="buttons-reg">
-                    <!-- <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> -->
-                    <!-- <button mat-raised-button color="primary" type="submit">OK</button> -->
-                    <button type="submit" class="normal-btn"><mat-icon>save_alt</mat-icon><span>OK</span></button>
-                </div>
-            </form>
+        <div class="example-form-fields content">
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>name</mat-label>
+                    <input matInput type="text" placeholder="Ex. andres" formControlName="businessID">
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>phone</mat-label>
+                    <input matInput type="number" placeholder="Ex. 3215114245" formControlName="phone">
+                    <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" placeholder="Ex. test@gmail.com" formControlName="email">
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [max]="today" [matDatepicker]="startDatePicker" formControlName="dataAdded">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>End Date</mat-label>
+                    <input matInput [min]="today" [matDatepicker]="endDatePicker" formControlName="endDate">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endDatePicker></mat-datepicker>
+                </mat-form-field>
+            </div>
         </div>
-    </mat-card-content>
-
-</mat-card>
+        <div class="buttons-reg">
+            <!-- <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> -->
+            <!-- <button mat-raised-button color="primary" type="submit">OK</button> -->
+            <button type="submit" class="normal-btn"><mat-icon>save_alt</mat-icon><span>OK</span></button>
+        </div>
+    </form>
+</div>

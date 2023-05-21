@@ -14,11 +14,12 @@ import { client } from 'src/app/models';
 import { DataService } from 'src/app/services';
 import { CreateClientComponent } from '../create-client';
 import { SearchAdvancedComponent } from '../search-advanced/search-advanced.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @Component({
   selector: 'app-client-table',
   standalone: true,
-  imports: [MatCardModule, MatIconModule, CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule, MatDialogModule, MatDatepickerModule],
+  imports: [SearchAdvancedComponent, MatExpansionModule, MatCardModule, MatIconModule, CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule, MatDialogModule, MatDatepickerModule],
   templateUrl: './client-table.component.html',
   styleUrls: ['./client-table.component.scss']
 })
