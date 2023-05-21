@@ -69,14 +69,14 @@
 
             <ng-container matColumnDef="dataAdded">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Data Added</th>
-                <td mat-cell *matCellDef="let row">{{ row.dataAdded }}</td>
+                <td mat-cell *matCellDef="let row">{{ row.dataAdded | date}}</td>
             </ng-container>
 
 
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-icon-button color="primary" aria-label="action">
+                <td mat-cell *matCellDef="let row">
+                    <button (click)="updateDialog(row,'1000ms', '1000ms')" mat-icon-button color="primary" aria-label="action">
                         <mat-icon>edit</mat-icon>
                     </button>
                 </td>

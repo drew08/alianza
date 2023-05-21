@@ -33,6 +33,7 @@ export class DataService {
     return this.http.post(`${this.baseURL}`, body, { 'headers': headers });
   }
 
+
   advancedSearch(data: {}) {
 
     const headers = { 'content-type': 'application/json' }
@@ -41,7 +42,7 @@ export class DataService {
   }
 
   updateData(id: string, data: {}) {
-
+    debugger;
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(data);
     return this.http.patch(`${this.baseURL}/${id}`, body, { 'headers': headers });

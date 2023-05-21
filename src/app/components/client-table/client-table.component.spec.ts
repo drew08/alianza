@@ -47,10 +47,8 @@ let mockedClient: Array<client> = [];
  
  const mockedDataService: {
   getData: ()  =>  Observable<Object>;
-  search: BehaviorSubject<string>
  } = {
   getData: ()  => of(mockedClient),
-  search: new BehaviorSubject<string>("")
  };
 
 describe('ClientTableComponent', () => {
@@ -84,18 +82,18 @@ describe('ClientTableComponent', () => {
   });
 
 
-  // it('should call api, getData',() => {
-  //   const getDataSpy = spyOn(mockedDataService,'getData');
-  //   getDataSpy.and.returnValue(of(mockedClient));
-  //   component.getData();
-  //   expect(mockedDataService.getData).toHaveBeenCalled();
-  //   expect(component.clientList).toEqual(mockedClient);
-  //   // sin servicio
-  //   getDataSpy.and.returnValue(throwError(() =>'error en servidor'));
-  //   component.clientList = [];
-  //   expect(mockedDataService.getData).toHaveBeenCalled();
-  //   expect(component.clientList).toBeFalsy();
-  // });
+   it('should call api, getData',() => {
+     const getDataSpy = spyOn(mockedDataService,'getData');
+     getDataSpy.and.returnValue(of(mockedClient));
+     component.getData;
+     expect(mockedDataService.getData).toHaveBeenCalled();
+    // expect(component.clientList).toEqual(mockedClient);
+     // sin servicio
+    //  getDataSpy.and.returnValue(throwError(() =>'error en servidor'));
+    //  component.clientList = [];
+    //  expect(mockedDataService.getData).toHaveBeenCalled();
+    //  expect(component.clientList).toBeFalsy();
+   });
 
 
    it('crear componente ClientTableComponent',() => {

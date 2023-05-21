@@ -46,18 +46,12 @@ export class ClientTableComponent implements OnInit {
       autoFocus: false,
       enterAnimationDuration,
       exitAnimationDuration,
-    });
+    }).afterClosed().subscribe(val=>{
+      if(val === 'save'){
+        this.getData();
+      }
+    });;
   }
-
-  openSearchDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(SearchAdvancedComponent, {
-      backdropClass: 'blurred',
-      autoFocus: false,
-      enterAnimationDuration,
-      exitAnimationDuration,
-    });
-  }
-
 
   ngOnInit(): void {
     this.getData();
@@ -114,6 +108,21 @@ export class ClientTableComponent implements OnInit {
         console.error('error service')
       }
     );
+  }
+
+  updateDialog(row: any,enterAnimationDuration: string, exitAnimationDuration: string){
+    this.dialog.open(CreateClientComponent, {
+      backdropClass: 'blurred',
+      autoFocus: false,
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data: row
+    }).afterClosed().subscribe(val=>{
+      if(val === 'update'){
+        this.getData();
+      }
+    });
+
   }
 
   saveData() {

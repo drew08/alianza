@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
+import { ClientTableComponent } from '../client-table';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-client',
@@ -30,6 +32,8 @@ import { DataService } from 'src/app/services/data.service';
 export class CreateClientComponent implements OnInit {
 
   today = new Date();
+
+  actionTitle: String = 'Create New Client';
 
   registrationForm = this.fb.group({
     businessID: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
@@ -43,13 +47,23 @@ export class CreateClientComponent implements OnInit {
   constructor(private dataService: DataService,
     public fb: FormBuilder,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
+    public dialogRef: MatDialogRef<ClientTableComponent>,
+    @Inject(MAT_DIALOG_DATA) public editData: any
 
   ) { }
-
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    if (this.editData) {
+      this.actionTitle = 'Update Client';
+      this.registrationForm.controls['businessID'].setValue(this.editData.businessID);
+      this.registrationForm.controls['phone'].setValue(this.editData.phone);
+      this.registrationForm.controls['email'].setValue(this.editData.email);
+      this.registrationForm.controls['dataAdded'].setValue(this.editData.dataAdded);
+      this.registrationForm.controls['sharedKey'].setValue(this.editData.sharedKey);
+
+    }
   }
+
 
 
 
@@ -63,7 +77,13 @@ export class CreateClientComponent implements OnInit {
     if (!this.registrationForm.valid) {
       this.toastr.warning('por favor ingrese la informacion.')
     } else {
-      this.createData(data);
+ 
+      if (!this.editData) {
+        this.createData(data);
+      }else {
+        this.updateData(data);
+      }
+
     }
   }
 
@@ -78,15 +98,34 @@ export class CreateClientComponent implements OnInit {
 
   createData(data: any) {
     debugger;
-    this.dataService.createData(data).subscribe((result: any) => {
+
+      this.dataService.createData(data).subscribe((result: any) => {
+        debugger;
+        this.toastr.success('registro exitoso')
+        this.registrationForm.reset({});
+        var res = result;
+        this.dialogRef.close('save');
+
+      },
+        (error: any) => {
+          console.error('error caught in component')
+        }
+      );
+  }
+
+  updateData(data: any) {
+    debugger;
+
+    this.dataService.updateData(this.editData._id, data).subscribe((result: any) => {
       debugger;
       this.toastr.success('registro exitoso')
       this.registrationForm.reset({});
       var res = result;
+      this.dialogRef.close('update');
 
     },
       (error: any) => {
-        console.error('error caught in component')
+        console.error('error update component')
       }
     );
   }
@@ -94,3 +133,5 @@ export class CreateClientComponent implements OnInit {
 
 
 }
+
+
