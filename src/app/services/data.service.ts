@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { client } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -10,13 +10,12 @@ export class DataService {
 
   baseURL: string = "http://localhost:3000/clients";
 
-  public search = new BehaviorSubject<string>("");
 
   constructor(private http: HttpClient) { }
 
   getData() {
     debugger;
-    return this.http.get(`${this.baseURL}?sort=asc`);
+    return this.http.get(`${this.baseURL}`);
   }
 
 
@@ -26,7 +25,7 @@ export class DataService {
   }
 
 
-  createData(data: {}) {
+  createData(data: client) {
 
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(data);
@@ -34,27 +33,22 @@ export class DataService {
   }
 
 
-  advancedSearch(data: {}) {
-
-    const headers = { 'content-type': 'application/json' }
-    const body = JSON.stringify(data);
-    return this.http.post(`${this.baseURL}`, body, { 'headers': headers });
+  advancedSearch(data: client) {
+    // no implementado...
+    return this.http.get(`${this.baseURL}/findbysharedKey/${data.sharedKey}`);
   }
 
-  updateData(id: string, data: {}) {
+  updateData(id: string, data: client) {
     debugger;
     const headers = { 'content-type': 'application/json' }
     const body = JSON.stringify(data);
     return this.http.patch(`${this.baseURL}/${id}`, body, { 'headers': headers });
   }
 
-  deleteData(id: number) {
 
+  deleteData(id: number) {
     return this.http.delete(`${this.baseURL}/${id}`);
   }
-
-
-
 
 }
 

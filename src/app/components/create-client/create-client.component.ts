@@ -3,24 +3,19 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
 import { MatSelectModule } from '@angular/material/select';
-
 import { MatButtonModule } from '@angular/material/button';
-
 import { ToastrModule } from 'ngx-toastr';
-
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { Router, RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/services/data.service';
 import { ClientTableComponent } from '../client-table';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-client',
@@ -42,7 +37,7 @@ export class CreateClientComponent implements OnInit {
     dataAdded: [this.today, [Validators.required]],
     endDate: [, [Validators.required]],
     sharedKey: ['',]
-  }); 
+  });
 
   constructor(private dataService: DataService,
     public fb: FormBuilder,
@@ -64,23 +59,19 @@ export class CreateClientComponent implements OnInit {
     }
   }
 
-
-
-
   onSubmit() {
     debugger;
 
     let data = this.registrationForm.value;
-
     this.generateSharedKey(data);
-    debugger;
+
     if (!this.registrationForm.valid) {
-      this.toastr.warning('por favor ingrese la informacion.')
+      this.toastr.warning('please review the information entered.')
     } else {
- 
+
       if (!this.editData) {
         this.createData(data);
-      }else {
+      } else {
         this.updateData(data);
       }
 
@@ -89,7 +80,6 @@ export class CreateClientComponent implements OnInit {
 
   generateSharedKey(data: any) {
     debugger;
-
     if (data.businessID) {
       var parts = data.businessID.match(/^([a-zA-Z])[^\s]*(.*)$/);
       data.sharedKey = parts[1] + parts[2].replace(/\s/g, "");
@@ -98,19 +88,18 @@ export class CreateClientComponent implements OnInit {
 
   createData(data: any) {
     debugger;
+    this.dataService.createData(data).subscribe((result: any) => {
+      debugger;
+      this.toastr.success('Successful registration.')
+      this.registrationForm.reset({});
+      var res = result;
+      this.dialogRef.close('save');
 
-      this.dataService.createData(data).subscribe((result: any) => {
-        debugger;
-        this.toastr.success('registro exitoso')
-        this.registrationForm.reset({});
-        var res = result;
-        this.dialogRef.close('save');
-
-      },
-        (error: any) => {
-          console.error('error caught in component')
-        }
-      );
+    },
+      (error: any) => {
+        console.error('error create data component')
+      }
+    );
   }
 
   updateData(data: any) {
@@ -118,7 +107,7 @@ export class CreateClientComponent implements OnInit {
 
     this.dataService.updateData(this.editData._id, data).subscribe((result: any) => {
       debugger;
-      this.toastr.success('registro exitoso')
+      this.toastr.success('update successful.')
       this.registrationForm.reset({});
       var res = result;
       this.dialogRef.close('update');

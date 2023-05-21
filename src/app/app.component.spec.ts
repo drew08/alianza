@@ -23,13 +23,13 @@
 //   it(`should have as title 'alianza'`, () => {
 //     const fixture = TestBed.createComponent(AppComponent);
 //     const app = fixture.componentInstance;
-//     expect(app.title).toEqual('credibanco');
+//     expect(app.title).toEqual('alianza');
 //   });
 
 //   it('should render title', () => {
 //     const fixture = TestBed.createComponent(AppComponent);
 //     fixture.detectChanges();
 //     const compiled = fixture.nativeElement as HTMLElement;
-//     expect(compiled.querySelector('.content span')?.textContent).toContain('credibanco app is running!');
+//     expect(compiled.querySelector('.content span')?.textContent).toContain('alianza app is running!');
 //   });
 // });

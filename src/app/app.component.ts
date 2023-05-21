@@ -14,5 +14,5 @@ import { SidenavComponent } from './components/sidenav';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'credibanco';
+  title = 'alianza';
 }
