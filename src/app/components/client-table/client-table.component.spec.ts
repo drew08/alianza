@@ -32,6 +32,7 @@ import { importProvidersFrom } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 
+
 let mockedClient: Array<client> = [];
 
  mockedClient =  [
@@ -70,11 +71,8 @@ describe('ClientTableComponent', () => {
         positionClass :'toast-bottom-right'
       }),ClientTableComponent, HttpClientTestingModule, SearchAdvancedComponent, MatExpansionModule, MatCardModule, MatIconModule, CommonModule, MatTableModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSortModule, MatDialogModule, MatDatepickerModule],
       providers: [
-        provideHttpClient(),
         provideHttpClientTesting(),
-
         provideRouter(APP_ROUTE),
-
         provideToastr(),
         provideAnimations(),
         importProvidersFrom(BrowserAnimationsModule),

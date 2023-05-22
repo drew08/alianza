@@ -73,12 +73,12 @@ export class ClientTableComponent implements OnInit {
     
     this.dataService.getData().subscribe((result: any) => {
       
-      this.clientList = result;
-
-      this.dataSource = new MatTableDataSource(this.clientList);
-
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      if(result && result.length > 0){  
+        this.clientList = result;
+        this.dataSource = new MatTableDataSource(this.clientList);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+      }
     },
       (error: any) => {
         console.error('error service')
@@ -86,24 +86,6 @@ export class ClientTableComponent implements OnInit {
     );
   }
 
-  create() {
-    
-    this.dataService.getData().subscribe((result: any) => {
-      
-      this.clientList = result;
-
-      this.dataSource = new MatTableDataSource(this.clientList);
-
-      this.dataSource.paginator = this.paginator;
-
-      this.dataSource.sort = this.sort;
-
-    },
-      (error: any) => {
-        console.error('error service')
-      }
-    );
-  }
 
   updateDialog(row: any, enterAnimationDuration: string, exitAnimationDuration: string) {
     this.dialog.open(CreateClientComponent, {
