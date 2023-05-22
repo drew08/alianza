@@ -72,13 +72,10 @@ export class ClientTableComponent implements OnInit {
   getData() {
     
     this.dataService.getData().subscribe((result: any) => {
-      
-      if(result && result.length > 0){  
         this.clientList = result;
         this.dataSource = new MatTableDataSource(this.clientList);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-      }
     },
       (error: any) => {
         console.error('error service')
