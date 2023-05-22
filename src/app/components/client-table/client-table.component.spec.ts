@@ -27,27 +27,20 @@ import { DataService } from 'src/app/services';
 
 
 
-let mockedClient: Array<client> = [];
+let client: Array<any> = [];
 
- mockedClient =  [
-   {
-    "_id": "abcd",
-    "sharedKey": "abcd",
-    "businessID": "abcd",
-    "email": "abcd",
-    "phone":"abcd",
-    "dataAdded": "abcd"
- },
- {
-  "_id": "abcdd",
-  "sharedKey": "abcd",
-  "businessID": "abcd",
-  "email": "abcd",
-  "phone":"abcd",
-  "dataAdded": "abcd"
-}
-] 
- 
+const mockedClient = 
+[{
+  "_id":"646ad48fa64de634ae7091dd",
+  "sharedKey":"orodriguez",
+  "businessID":"oscar rodriguez",
+  "email":"os@gmail.com",
+  "phone":"6666666666",
+  "dataAdded":"2023-05-22T02:33:28.892Z",
+  "endDate":"2023-05-23T05:00:00.000Z",
+  "__v":0
+}] 
+
  const mockedDataService: {
   getData: ()  =>  Observable<Object>;
  } = {
@@ -86,21 +79,19 @@ describe('ClientTableComponent', () => {
   });
 
 
-  //  it('should call api, getData with mock',() => {
-  //     let fixture = TestBed.createComponent(ClientTableComponent);
-  //     let component = fixture.debugElement.componentInstance;
-  //     //let appService = fixture.debugElement.injector.get(DataService);
-  //     const getDataSpy = spyOn(mockedDataService,"getData");
-  //     getDataSpy.and.returnValue(of(mockedClient));
-  //     component.getData;
-  //     expect(mockedDataService.getData).toHaveBeenCalled();
-  //    // expect(component.clientList).toEqual(mockedClient);
-  //     // sin servicio
-  //    //  getDataSpy.and.returnValue(throwError(() =>'error en servidor'));
-  //    //  component.clientList = [];
-  //    //  expect(mockedDataService.getData).toHaveBeenCalled();
-  //    //  expect(component.clientList).toBeFalsy();
-  //   });
+
+  it('should test number of elements', ()=> {
+
+    // given
+    const restService = TestBed.inject(DataService);
+    spyOn(restService, 'getData').and.returnValue(of(mockedClient));
+
+    // when
+    component.getData();
+
+    // then
+    expect(component.clientList.length).toBe(1);
+  });
 
    it('should call service.getData', fakeAsync(()=>{
 
