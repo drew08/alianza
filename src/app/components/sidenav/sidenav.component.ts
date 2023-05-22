@@ -1,6 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
@@ -21,7 +21,12 @@ export class SidenavComponent {
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
 
-  constructor(private observer: BreakpointObserver, private router: Router, private sideNavService: SideNavService) { }
+  constructor(private cdRef:ChangeDetectorRef, private observer: BreakpointObserver, private router: Router, private sideNavService: SideNavService) { }
+
+  ngAfterViewChecked()
+  {
+    this.cdRef.detectChanges();
+  }
 
 
   ngAfterViewInit() {
